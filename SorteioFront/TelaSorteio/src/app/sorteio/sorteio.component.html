@@ -1,0 +1,68 @@
+<h3>Participantes do sorteio</h3>
+<hr>
+<div class="form-inline">
+  <div class="form-group mb-2">
+    <label class="mr-2">Filtro: </label>
+    <input
+    type="text"
+    class="form-control mr-2"
+    placeholder="buscar"
+    >
+  </div>
+</div>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+      <th>Telefone</th>
+      <th>Email</th>
+      <th>CPF</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="sorteios && sorteios.length">
+    <tr *ngFor="let sorteio of sorteios">
+      <td>{{sorteio.Id}}</td>
+      <td>{{sorteio.Nome}}</td>
+      <td>{{sorteio.Telefone}}</td>
+      <td>{{sorteio.Email}}</td>
+      <td>{{sorteio.Cpf}}</td>
+
+    </tr>
+  </tbody>
+  <tfoot *ngIf="sorteios == null">
+    <tr>
+      <td colspan="5" class="text-center">
+        <h4>Nenhum participante encontrado!</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+<ul class="pagination">
+  <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">Anterior</a></li>
+  <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">1</a></li>
+  <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">4</a></li>
+  <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">5</a></li>
+  <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">Próxima</a></li>
+</ul>
+
+<script>
+    const ativar=(elemento)=>{
+      let itens=document.getElementsByClassName("page-item");
+      for(i=0;i<itens.length;i++){
+        itens[i].classList.remove("active");
+      }
+      elemento.classList.add("active");
+    }
+</script>
+
+  <button (click)="randomString()" class="d-inline bg-primary btn-lg text-white">Iniciar sorteio
+      <i class="fa fa-gift" aria-hidden="true"></i>
+  </button>
+
+  <div class="card-body">
+    <h1 class="display-2 text-dark">{{codeGenerated}}</h1>
+  </div>
