@@ -3,6 +3,8 @@ import { sorteiomodel } from './../models/sorteiomodel';
 import { OnInit, Component, Inject } from '@angular/core';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -24,17 +26,19 @@ export class SorteioComponent implements OnInit {
 
   constructor(
     private sorteioService: SorteioService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private spinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
     this.getParticipante();
 
   }
 
   randomString() {
-
     const chars = '';
     const stringLength = 10;
     let randomstring = '';
@@ -48,6 +52,7 @@ export class SorteioComponent implements OnInit {
       width: '400px',
       data: this.sorteios[this.gerarRandomSorteio(0,this.sorteios.length)].Nome
     });
+    this.spinner.hide();
     return 0;
   }
 
@@ -69,6 +74,7 @@ export class SorteioComponent implements OnInit {
             Email: element['email'],
             Cpf: element['cpf'],
           };
+          this.spinner.hide();
           this.sorteios.push(lista);
         });
       },
