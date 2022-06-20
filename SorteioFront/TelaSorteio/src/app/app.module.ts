@@ -15,15 +15,19 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { LoginComponent } from './login/login.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
     SorteioComponent,
     NavComponent,
-    DialogComponent
-
+    DialogComponent,
+    LoginComponent
   ],
+
   imports: [
     BrowserModule,
     CommonModule,
@@ -34,9 +38,11 @@ import { CommonModule } from '@angular/common';
     ToastrModule.forRoot(),
     FormsModule,
     MatDialogModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatProgressSpinnerModule
 
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [ ],
   bootstrap: [AppComponent]
 })

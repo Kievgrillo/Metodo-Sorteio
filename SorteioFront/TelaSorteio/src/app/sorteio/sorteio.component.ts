@@ -48,21 +48,22 @@ export class SorteioComponent implements OnInit {
     }
     this.codeGenerated = randomstring;
     let dialogvar = this.dialog.open(DialogComponent, {
-      height: '250px',
-      width: '400px',
+      height: '300px',
+      width: '500px',
       data: this.sorteios[this.gerarRandomSorteio(0,this.sorteios.length)].Nome
     });
-    this.spinner.hide();
     return 0;
   }
 
   gerarRandomSorteio(min, max) {
+    this.spinner.show();
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
   getParticipante(): void {
+    this.spinner.show();
     this.sorteioService.getParticipante().subscribe({
       next: p => {
         p.forEach(element => {
@@ -74,7 +75,6 @@ export class SorteioComponent implements OnInit {
             Email: element['email'],
             Cpf: element['cpf'],
           };
-          this.spinner.hide();
           this.sorteios.push(lista);
         });
       },

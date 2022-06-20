@@ -8,6 +8,8 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DialogComponent implements OnInit {
 
+  date = new Date();
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogComponent ) { }
 
   ngOnInit(): void {
