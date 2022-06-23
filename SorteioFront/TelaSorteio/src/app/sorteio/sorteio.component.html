@@ -40,6 +40,7 @@
 </table>
 
 <ul class="pagination">
+  <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">Primeira</a></li>
   <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">Anterior</a></li>
   <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">1</a></li>
   <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">2</a></li>
@@ -47,6 +48,7 @@
   <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">4</a></li>
   <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">5</a></li>
   <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">Próxima</a></li>
+  <li class="page-item"onclick="ativar(this)"><a class="page-link" href="#">Última</a></li>
 </ul>
 
 <script>
@@ -59,6 +61,7 @@
     }
 </script>
 
+
   <button (click)="randomString()" class="d-inline bg-primary btn-lg text-white">Iniciar sorteio
       <i class="fa fa-gift" aria-hidden="true"></i>
   </button>
@@ -66,3 +69,5 @@
   <div class="card-body">
     <h1 class="display-2 text-dark">{{codeGenerated}}</h1>
   </div>
+
+

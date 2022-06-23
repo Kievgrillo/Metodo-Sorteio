@@ -2,12 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using SorteioAPI.Data;
 using SorteioAPI.Data.Dtos;
-using SorteioAPI.Models;
-using System;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SorteioAPI.Service
 {
@@ -32,6 +28,7 @@ namespace SorteioAPI.Service
 
             return _mapper.Map<List<ReadParticipantesDto>>(participantes);
                 
-        } 
+        }
+
     }
 }

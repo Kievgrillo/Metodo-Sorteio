@@ -2,9 +2,8 @@ import { SorteioService } from './../service/sorteioservice';
 import { sorteiomodel } from './../models/sorteiomodel';
 import { OnInit, Component, Inject } from '@angular/core';
 import { DialogComponent } from '../dialog/dialog.component';
-import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -28,7 +27,6 @@ export class SorteioComponent implements OnInit {
     private sorteioService: SorteioService,
     public dialog: MatDialog,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
   ) {
   }
 
@@ -63,7 +61,6 @@ export class SorteioComponent implements OnInit {
   }
 
   getParticipante(): void {
-    this.spinner.show();
     this.sorteioService.getParticipante().subscribe({
       next: p => {
         p.forEach(element => {
@@ -80,6 +77,10 @@ export class SorteioComponent implements OnInit {
       },
       error: err => console.log('Error', err)
     });
+  }
+
+  getpaginator(): void {
+
   }
 }
 

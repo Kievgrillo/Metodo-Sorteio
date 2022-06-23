@@ -1,7 +1,7 @@
 <h2>O ganhador é...</h2>
 <hr>
 
-<div *ngIf="date | async as date ; else loading">
+<div *ngIf="sorteios | async as data; else loading">
   <p class="text-center">Parabéns {{data}} você ganhou nosso sorteio semanal</p>
   <hr>
 </div>

@@ -1,3 +1,4 @@
+import { navbarData } from './nav-data';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  isCollapsed = true;
-  showFiller = true;
+  isCollapsed = false;
+  navData = navbarData;
 
   constructor() { }
 
