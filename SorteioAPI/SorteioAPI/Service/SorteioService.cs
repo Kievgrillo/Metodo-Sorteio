@@ -22,8 +22,8 @@ namespace SorteioAPI.Service
 
         public List<ReadParticipantesDto> GetParticipantes() 
         {
-            var participantes = _context.Participantes
-                      .FromSqlInterpolated($"SP_PARTICIPANTEGET")
+            var participantes = _context.Participantes.
+                      .FromSqlInterpolated($"SP_PARTICIPANTESGET")
                       .ToList();
 
             return _mapper.Map<List<ReadParticipantesDto>>(participantes);
