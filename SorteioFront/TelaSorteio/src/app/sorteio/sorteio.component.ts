@@ -48,7 +48,7 @@ export class SorteioComponent implements OnInit {
     let dialogvar = this.dialog.open(DialogComponent, {
       height: '300px',
       width: '500px',
-      data: this.sorteios[this.gerarRandomSorteio(0,this.sorteios.length)].Nome
+      data: this.sorteios[this.gerarRandomSorteio(0,this.sorteios.length)]
     });
     return 0;
   }

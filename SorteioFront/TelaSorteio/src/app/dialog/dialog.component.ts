@@ -12,20 +12,30 @@ export class DialogComponent implements OnInit {
 
   date = new Date();
 
-  sorteios: sorteiomodel[]
+  teste: any;
+
+  checkspinner: boolean;
+
+  sorteado: any;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogComponent) { }
 
-
-
-  ngOnInit(): void {
+    ngOnInit(): void {
+    console.log(this.data);
+    this.checkspinner = true;
     this.getData();
+    this.teste = setInterval(() => {
+    this.checkspinner = false;
+    console.log(this.checkspinner);
+    }, 3000);
+    this.checkspinner = true;
+    console.log(this.checkspinner);
   }
 
 
   getData(): any {
-    this.sorteios = this.sorteios.length[0];
+     this.sorteado = this.data;
   }
 }
 

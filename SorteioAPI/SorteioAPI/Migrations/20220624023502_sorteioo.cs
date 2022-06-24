@@ -2,7 +2,7 @@
 
 namespace SorteioAPI.Migrations
 {
-    public partial class MigrationParticipante : Migration
+    public partial class sorteioo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

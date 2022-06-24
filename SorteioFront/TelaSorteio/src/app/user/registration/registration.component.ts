@@ -8,33 +8,33 @@ import { AbstractControlOptions, FormBuilder, FormGroup, Validators } from '@ang
 })
 export class RegistrationComponent implements OnInit {
 
-  form!: FormGroup;
+  // form! FormGroup;
 
   constructor(public fb: FormBuilder) { }
 
-  get f(): any {return this.form.controls; }
+  // get f(): any {return this.form.controls; }
 
   ngOnInit(): void {
-    this.validation();
+    // this.validation();
   }
 
-  private validation(): void {
+  // private validation(): void {
 
-    const formOptions: AbstractControlOptions = {
-      validators: ValidatorsField.MustMatch('senha', 'confirmeSenha')
-    };
+  //   const formOptions: AbstractControlOptions = {
+  //     validators: ValidatorsField.MustMatch('senha', 'confirmeSenha')
+  //   };
 
-    this.form = this.fb.group({
-      primeiroNome: ['', Validators.required],
-      ultimoNome: ['', Validators.required],
-      email: ['',
-        [Validators.required, Validators.email]
-      ],
-      userName: ['', Validators.required],
-      senha: ['',
-        [Validators.required, Validators.minLength(6)]
-      ],
-      confirmeSenha: ['', Validators.required],
-    }, formOptions);
-  }
+  //   this.form = this.fb.group({
+  //     primeiroNome: ['', Validators.required],
+  //     ultimoNome: ['', Validators.required],
+  //     email: ['',
+  //       [Validators.required, Validators.email]
+  //     ],
+  //     userName: ['', Validators.required],
+  //     senha: ['',
+  //       [Validators.required, Validators.minLength(6)]
+  //     ],
+  //     confirmeSenha: ['', Validators.required],
+  //   }, formOptions);
+   //}
 }

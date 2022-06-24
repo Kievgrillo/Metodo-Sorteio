@@ -9,8 +9,8 @@ using SorteioAPI.Data;
 namespace SorteioAPI.Migrations
 {
     [DbContext(typeof(SorteioContext))]
-    [Migration("20220612204918_MigrationParticipante")]
-    partial class MigrationParticipante
+    [Migration("20220624023502_sorteioo")]
+    partial class sorteioo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
