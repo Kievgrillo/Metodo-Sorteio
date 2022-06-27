@@ -1,4 +1,3 @@
-import { navbarData } from './nav-data';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
-  isCollapsed = false;
-  navData = navbarData;
 
   constructor() { }
 

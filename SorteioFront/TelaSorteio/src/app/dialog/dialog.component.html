@@ -1,6 +1,5 @@
-<h2 *ngIf="checkspinner == true;">O ganhador é...</h2>
+<h1 *ngIf="checkspinner == true;">O ganhador é...</h1>
 <hr>
-
 <div *ngIf="checkspinner == false; else loading">
   <p class="text-center">Parabéns {{sorteado.Nome}} você ganhou nosso sorteio semanal</p>
 </div>
@@ -12,3 +11,6 @@
 </ng-template>
 <hr>
 
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="resetForm()">Closed</button>
+</div>

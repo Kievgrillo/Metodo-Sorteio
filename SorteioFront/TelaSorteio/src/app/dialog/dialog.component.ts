@@ -1,7 +1,7 @@
-import { Observable } from 'rxjs/internal/Observable';
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { sorteiomodel } from '../models/sorteiomodel';
+import { Router } from '@angular/router';
 import { SorteioService } from '../service/sorteioservice';
 
 @Component({
@@ -15,10 +15,13 @@ export class DialogComponent implements OnInit {
   teste: any;
   checkspinner: boolean;
   sorteado: any;
+  closeBtnName: string;
+  form: FormGroup;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: DialogComponent,
-    private sorteioService: SorteioService) {}
+    private sorteioService: SorteioService,
+    private router: Router) {}
 
     ngOnInit(): void {
     console.log(this.data);
@@ -44,6 +47,11 @@ export class DialogComponent implements OnInit {
 
   getData(): any {
      this.sorteado = this.data;
+  }
+
+  public resetForm(): void {
+    this.form.reset();
+    this.router.navigateByUrl('/menu');
   }
 }
 

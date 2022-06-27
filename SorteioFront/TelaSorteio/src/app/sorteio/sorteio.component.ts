@@ -45,8 +45,8 @@ export class SorteioComponent implements OnInit {
     }
     this.codeGenerated = randomstring;
     let dialogvar = this.dialog.open(DialogComponent, {
-      height: '300px',
-      width: '500px',
+      height: '430px',
+      width: '470px',
       data: this.sorteios[this.gerarRandomSorteio(0,this.sorteios.length)]
     });
     return 0;
@@ -98,9 +98,8 @@ export class SorteioComponent implements OnInit {
     });
   }
 
-  getpaginator(): void {
+  getpaginator(): void {}
 
-  }
 }
 
 

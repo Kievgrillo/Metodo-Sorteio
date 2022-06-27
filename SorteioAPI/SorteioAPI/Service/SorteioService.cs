@@ -26,7 +26,7 @@ namespace SorteioAPI.Service
         public List<ReadParticipantesDto> GetParticipantes() 
         {
             var participantes = _context.Participantes
-                      .FromSqlInterpolated($"SP_PARTICIPANTEGET")
+                      .FromSqlInterpolated($"SP_PARTICIPANTESGET")
                       .ToList();
 
             return _mapper.Map<List<ReadParticipantesDto>>(participantes);
@@ -48,7 +48,7 @@ namespace SorteioAPI.Service
             var paramNome = new SqlParameter("@Nome", Nome);
             var paramID = new SqlParameter("@IdPart", IdPart);
             var resultado = _context.Participantes
-                               .FromSqlRaw($"SP_PutGanhador @Nome, @IdPart", paramNome, paramID).ToList();
+                               .FromSqlRaw($"SP_PostGanhador @Nome, @IdPart", paramNome, paramID).ToList();
            
 
             if (resultado == null) return Result.Fail("erro ao salvar participantes");

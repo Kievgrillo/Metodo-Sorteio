@@ -9,20 +9,24 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-    <mat-divider></mat-divider>
-
-    <button mat-button class="menu-button" routerLink="/home">
+    <button mat-button class="menu-button" routerLink="/menu">
       <span>Menu</span>
+      <i class="fa fa-cog pr-1" aria-hidden="true"></i>
     </button>
-    <button mat-button class="menu-button" routerLink="/profile">
+    <hr>
+    <button mat-button class="menu-button" routerLink="/usuarios">
       <span>Usuários</span>
+      <i class="fa fa-user" aria-hidden="true"></i>
     </button>
-    <button mat-button class="menu-button" routerLink="/about">
+    <hr>
+    <button mat-button class="menu-button" routerLink="/sair">
       <span>Sair</span>
+      <i class="fa fa-sign-out" aria-hidden="true"></i>
     </button>
 
 
   </mat-sidenav>
+
   <mat-sidenav-content>
     <div class="container">
       <router-outlet></router-outlet>
