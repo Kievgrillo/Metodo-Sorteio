@@ -32,8 +32,7 @@ export class SorteioComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.getParticipante();
-
+    this.GetParticipante();
   }
 
   randomString() {
@@ -60,9 +59,29 @@ export class SorteioComponent implements OnInit {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  getParticipante(): void {
-    this.sorteioService.getParticipante().subscribe({
+  GetParticipante(): void {
+    this.sorteioService.GetParticipante().subscribe({
       next: p => {
+        p.forEach(element => {
+
+          var lista = {
+            Id: element['id'],
+            Nome: element['nome'],
+            Telefone: element['telefone'],
+            Email: element['email'],
+            Cpf: element['cpf'],
+          };
+          this.sorteios.push(lista);
+        });
+      },
+      error: err => console.log('Error', err)
+    });
+  }
+
+  getFiltroParticipante(search): void {
+    this.sorteioService.GetFilterParticipantes(search).subscribe({
+      next: p => {
+        this.sorteios = [];
         p.forEach(element => {
 
           var lista = {

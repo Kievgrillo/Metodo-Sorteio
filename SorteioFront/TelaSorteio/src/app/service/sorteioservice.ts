@@ -13,7 +13,7 @@ export class SorteioService {
 
   constructor(private http: HttpClient) {  }
 
-  getParticipante() : Observable<sorteiomodel[]> {
+   GetParticipante() : Observable<sorteiomodel[]> {
     return this.http.get<sorteiomodel[]>(this.baseURL)
       .pipe(
         map(res => {
@@ -21,4 +21,28 @@ export class SorteioService {
         })
       );
   }
+
+    GetFilterParticipantes(search) : Observable<sorteiomodel[]> {
+      var busca = this.baseURL + '/GetFilter' + '/' + search;
+      return this.http.get<sorteiomodel[]>(busca)
+        .pipe(
+          map(res => {
+            return res;
+          })
+        );
+  }
+
+  SaveGanhadoresSorteio(nome, idPart) : Observable<any> {
+    var url = this.baseURL;
+    const parametros = {
+      nome: nome,
+      id: idPart
+    }
+    return this.http.post<any>(url, parametros)
+      .pipe(
+        map(res => {
+          return res;
+        })
+      );
+   }
 }
