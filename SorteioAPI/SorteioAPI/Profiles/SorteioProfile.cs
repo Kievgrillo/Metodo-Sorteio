@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using SorteioAPI.Data.Dtos;
-using SorteioAPI.Models;
+using SorteioAPI.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

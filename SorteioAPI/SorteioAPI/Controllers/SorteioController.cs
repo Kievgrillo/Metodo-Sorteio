@@ -1,11 +1,9 @@
 ﻿using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SorteioAPI.Data.Request;
+using SorteioAPI.Entities;
 using SorteioAPI.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SorteioAPI.Controllers
 {
@@ -45,5 +43,23 @@ namespace SorteioAPI.Controllers
             return Ok(resultado.Successes);
         }
         
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate(AuthenticateRequest model)
+        {
+            var response = _sorteioService.Authenticate(model);
+
+            if (response == null)
+                return BadRequest(new { message = "Usuário ou nome incorretos" });
+
+            return Ok(response);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var users = _sorteioService.GetAll();
+            return Ok(users);
+        }
     }
 }

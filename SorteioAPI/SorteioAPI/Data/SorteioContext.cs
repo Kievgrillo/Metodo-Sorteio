@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SorteioAPI.Models;
+using SorteioAPI.Entities;
 
 namespace SorteioAPI.Data
 {
