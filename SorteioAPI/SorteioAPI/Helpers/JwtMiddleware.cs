@@ -22,17 +22,17 @@ namespace SorteioAPI.Helpers
             _appSettings = appSettings.Value;
         }
 
-        public async Task Invoke(HttpContext context, SorteioService userService)
+        public async Task Invoke(HttpContext context, UserService iuserService)
         {
             var token = context.Request.Headers["Authorizations"].FirstOrDefault()?.Split(" ").Last();
 
             if (token != null)
-                attachUserToContext(context, userService, token);
+                attachUserToContext(context, iuserService, token);
 
             await _next(context);
         }
 
-        private void attachUserToContext(HttpContext context, SorteioService userService, string token)
+        private void attachUserToContext(HttpContext context, UserService iuserService, string token)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace SorteioAPI.Helpers
                 // não faz nada se a validação do jwt falhar
                 // o usuário não está anexado ao contexto, então a solicitação não terá acesso a rotas seguras
 
-                context.Items["User"] = userService.GetById(userId);
+                context.Items["User"] = iuserService.GetById(userId);
             }
             catch
             {

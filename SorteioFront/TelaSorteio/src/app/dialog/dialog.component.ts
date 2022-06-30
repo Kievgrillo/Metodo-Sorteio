@@ -24,16 +24,12 @@ export class DialogComponent implements OnInit {
     private router: Router) {}
 
     ngOnInit(): void {
-    console.log(this.data);
     this.checkspinner = true;
     this.getData();
     this.teste = setInterval(() => {
     this.checkspinner = false;
-    console.log(this.checkspinner);
-    }, 3000);
+    }, 10000);
     this.checkspinner = true;
-    console.log(this.checkspinner);
-    console.log(this.sorteado.Nome, this.sorteado.Id)
     this.GanhadorSorteio();
   }
 

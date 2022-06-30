@@ -12,10 +12,12 @@ namespace SorteioAPI.Controllers
     public class SorteioController : ControllerBase
     {
         private readonly SorteioService _sorteioService;
+        private readonly UserService _isorteioService;
 
-        public SorteioController(SorteioService sorteioService)
+        public SorteioController(SorteioService sorteioService, UserService isorteioService)
         {
             _sorteioService = sorteioService;
+            _isorteioService = isorteioService;
         }
 
         [HttpGet]
@@ -46,7 +48,7 @@ namespace SorteioAPI.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
-            var response = _sorteioService.Authenticate(model);
+            var response = _isorteioService.Authenticate(model);
 
             if (response == null)
                 return BadRequest(new { message = "Usuário ou nome incorretos" });
@@ -58,7 +60,7 @@ namespace SorteioAPI.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var users = _sorteioService.GetAll();
+            var users = _isorteioService.GetAll();
             return Ok(users);
         }
     }
