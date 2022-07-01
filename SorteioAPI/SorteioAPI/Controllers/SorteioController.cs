@@ -20,7 +20,7 @@ namespace SorteioAPI.Controllers
             _isorteioService = isorteioService;
         }
 
-        [HttpGet]
+        [HttpGet("Filter")]
         public IActionResult GetParticipante()
         {
             var participantes = _sorteioService.GetParticipantes();
@@ -34,7 +34,7 @@ namespace SorteioAPI.Controllers
             return Ok(particpantes);
         }
 
-        [HttpPost]
+        [HttpPost("Ganhador")]
         public IActionResult GetSaveGanhador([FromBody] ParticipanteRequest request)
         {
             Result resultado = _sorteioService.GetSaveGanhador(request.Nome, request.Id);
@@ -57,7 +57,7 @@ namespace SorteioAPI.Controllers
         }
 
         [Authorize]
-        [HttpGet]
+        [HttpGet("users")]
         public IActionResult GetAll()
         {
             var users = _isorteioService.GetAll();

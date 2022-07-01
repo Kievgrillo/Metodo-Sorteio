@@ -16,7 +16,7 @@ namespace SorteioAPI.Entities
             FirstName = user.FirstName;
             LastName = user.LastName;
             UserName = user.UserName;
-            Token = Token;
+            Token = token;
         }
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SorteioAPI.Data;
+using SorteioAPI.Helpers;
 using SorteioAPI.Service;
 using System;
 using System.Text;
@@ -50,6 +51,7 @@ namespace SorteioAPI
                     .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling =
                      Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddCors();
             services.AddScoped<SorteioService, SorteioService>();
             services.AddScoped<UserService, UserService>();
@@ -74,6 +76,8 @@ namespace SorteioAPI
             app.UseAuthorization();
 
             app.UseHttpsRedirection();
+
+            app.UseMiddleware<JwtMiddleware>();
 
             app.UseCors(x => x.AllowAnyHeader()
                               .AllowAnyMethod()
